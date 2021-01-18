@@ -1,3 +1,3 @@
-import gendiff from './src/logic-gendiff.js';
+import genDiff from './src/logic-gendiff.js';
 
-export default gendiff;
+export default genDiff;
