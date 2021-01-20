@@ -10,9 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          id_codeclimate: ${{ secrets.ID_CODECLIMATE }}
       - name: install
         run: make install
+      - name: publish code coverage
+        uses: xaarxus/codeclimate-action@v2.7.4
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.ID_CODECLIMATE }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true
       - name: tests
         run: make test
