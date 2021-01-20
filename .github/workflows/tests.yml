@@ -1,4 +1,4 @@
-name: test ESlint
+name: tests
 
 on:
   push:
