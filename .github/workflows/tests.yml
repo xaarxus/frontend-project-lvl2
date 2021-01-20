@@ -13,7 +13,7 @@ jobs:
       - name: install
         run: make install
       - name: publish code coverage
-        uses: xaarxus/codeclimate-action@v2.7.4
+        uses: paambaati/codeclimate-action@v2.7.4
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.ID_CODECLIMATE }}
         with:
