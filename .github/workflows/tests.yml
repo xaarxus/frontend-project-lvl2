@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          codeclimate_id: ${{ secrets.ID_CODECLIMATE }}
+          id_codeclimate: ${{ secrets.ID_CODECLIMATE }}
       - name: install
         run: make install
       - name: tests
