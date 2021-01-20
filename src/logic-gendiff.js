@@ -29,7 +29,7 @@ const findingDifference = (data1, data2) => {
   return result;
 };
 
-const gendiff = (filepath1, filepath2) => {
+const genDiff = (filepath1, filepath2) => {
   const normalizePath1 = path.resolve(process.cwd(), filepath1);
   const normalizePath2 = path.resolve(process.cwd(), filepath2);
   const data1 = JSON.parse(fs.readFileSync(normalizePath1));
@@ -40,4 +40,4 @@ const gendiff = (filepath1, filepath2) => {
   return `{${result}\n}`;
 };
 
-export default gendiff;
+export default genDiff;
