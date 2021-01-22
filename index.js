@@ -1,7 +1,7 @@
 import * as path from 'path';
 
 import gendiffJSON from './src/logic-gendiff';
-import parseFile from './src/parseFile.js';
+import parseFile from './src/parsers';
 
 export default (filepath1, filepath2) => {
   const format1 = path.extname(filepath1);
