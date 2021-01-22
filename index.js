@@ -1,3 +1,14 @@
-import genDiff from './src/gengiff-json.js';
+import * as path from 'path';
 
-export default genDiff;
+import gendiffJSON from './src/gengiff-json.js';
+import parseFile from './src/parseFile.js';
+
+export default (filepath1, filepath2) => {
+  const format1 = path.extname(filepath1);
+  const format2 = path.extname(filepath1);
+
+  const file1 = parseFile(filepath1, format1);
+  const file2 = parseFile(filepath2, format2);
+
+  return gendiffJSON(file1, file2);
+};
