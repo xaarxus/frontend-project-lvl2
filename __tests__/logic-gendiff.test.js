@@ -16,13 +16,13 @@ describe('Test stylish', () => {
     const filepath1 = getFixturePath('before.json');
     const filepath2 = getFixturePath('after.json');
 
-    expect(genDiff(filepath1, filepath2, 'stylish')).toEqual(expectValue);
+    expect(genDiff(filepath1, filepath2, { format: 'stylish' })).toEqual(expectValue);
   });
 
   test('test YAML', () => {
     const filepath1 = getFixturePath('yaml-before.yml');
     const filepath2 = getFixturePath('yaml-after.yml');
 
-    expect(genDiff(filepath1, filepath2, 'stylish')).toEqual(expectValue);
+    expect(genDiff(filepath1, filepath2, { format: 'stylish' })).toEqual(expectValue);
   });
 });
