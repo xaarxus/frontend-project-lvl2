@@ -26,3 +26,21 @@ describe('Test stylish', () => {
     expect(genDiff(filepath1, filepath2, { format: 'stylish' })).toEqual(expectValue);
   });
 });
+
+describe('Test Plain', () => {
+  const expectValue = fs.readFileSync(getFixturePath('result-plain.txt'), 'utf-8');
+
+  test('test JSON', () => {
+    const filepath1 = getFixturePath('before.json');
+    const filepath2 = getFixturePath('after.json');
+
+    expect(genDiff(filepath1, filepath2, { format: 'plain' })).toEqual(expectValue);
+  });
+
+  test('test YAML', () => {
+    const filepath1 = getFixturePath('yaml-before.yml');
+    const filepath2 = getFixturePath('yaml-after.yml');
+
+    expect(genDiff(filepath1, filepath2, { format: 'plain' })).toEqual(expectValue);
+  });
+});

@@ -1,7 +1,7 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
 
-export default (data1, data2, formatName = 'stylish') => {
+export default (data1, data2, formatName) => {
   if (formatName === 'plain') {
     return plain(data1, data2);
   }
