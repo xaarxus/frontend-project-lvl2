@@ -8,6 +8,9 @@ const slyles = (str) => {
   if (str === 'plain') {
     return 'plain';
   }
+  if (str === 'json') {
+    return 'json';
+  }
   return 'stylish';
 };
 
@@ -15,7 +18,7 @@ program
   .version('0.1.0')
   .arguments('<filepath1> <filepath2>')
   .description('Compares two configuration files and shows a difference.')
-  .option('-f, --format [type]', 'output format [stylish, plain]', slyles, 'stylish')
+  .option('-f, --format [type]', 'output format [stylish, plain, json]', slyles, 'stylish')
   .action((filepath1, filepath2, formatName) => {
     console.log(genDiff(filepath1, filepath2, formatName));
   })

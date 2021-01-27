@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 const getFixturePath = (filename) => path.join(__dirname, '__fixtures__', filename);
 
-describe('Test stylish', () => {
+describe('Test Stylish', () => {
   const expectValue = fs.readFileSync(getFixturePath('result.txt'), 'utf-8');
 
   test('test JSON', () => {
@@ -42,5 +42,23 @@ describe('Test Plain', () => {
     const filepath2 = getFixturePath('yaml-after.yml');
 
     expect(genDiff(filepath1, filepath2, { format: 'plain' })).toEqual(expectValue);
+  });
+});
+
+describe('Test Json', () => {
+  const expectValue = fs.readFileSync(getFixturePath('result-json.txt'), 'utf-8');
+
+  test('test JSON', () => {
+    const filepath1 = getFixturePath('before.json');
+    const filepath2 = getFixturePath('after.json');
+
+    expect(genDiff(filepath1, filepath2, { format: 'json' })).toEqual(expectValue);
+  });
+
+  test('test YAML', () => {
+    const filepath1 = getFixturePath('yaml-before.yml');
+    const filepath2 = getFixturePath('yaml-after.yml');
+
+    expect(genDiff(filepath1, filepath2, { format: 'json' })).toEqual(expectValue);
   });
 });
