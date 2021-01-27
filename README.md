@@ -8,3 +8,4 @@
 <a href="https://asciinema.org/a/NgVjUMcwrcW9O8sbsQe4q6f5n"><img src="https://asciinema.org/a/NgVjUMcwrcW9O8sbsQe4q6f5n.png" width="200"/></a>
 <a href="https://asciinema.org/a/387222"><img src="https://asciinema.org/a/387222.png" width="200"/></a>
 <a href="https://asciinema.org/a/387223"><img src="https://asciinema.org/a/387223.png" width="200"/></a>
+<a href="https://asciinema.org/a/387463"><img src="https://asciinema.org/a/387463.png" width="200"/></a>
