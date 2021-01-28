@@ -2,7 +2,7 @@ import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
 
-export default (data1, data2, formatName) => {
+export default (data1, data2, formatName = { format: 'stylish' }) => {
   const { format } = formatName;
   if (format === 'plain') {
     return plain(data1, data2);
