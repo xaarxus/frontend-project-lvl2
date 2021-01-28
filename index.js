@@ -2,7 +2,7 @@ import * as path from 'path';
 import parseFile from './src/parsers.js';
 import fabricFotmatters from './formatters/index.js';
 
-export default (filepath1, filepath2, { format }) => {
+export default (filepath1, filepath2, format) => {
   const format1 = path.extname(filepath1);
   const format2 = path.extname(filepath2);
 
