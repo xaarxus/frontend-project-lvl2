@@ -9,6 +9,17 @@ const __dirname = path.dirname(__filename);
 
 const getFixturePath = (filename) => path.join(__dirname, '__fixtures__', filename);
 
+describe('Simple test', () => {
+  const expectValue = fs.readFileSync(getFixturePath('result-simple.txt'), 'utf-8');
+
+  test('test JSON', () => {
+    const filepath1 = getFixturePath('before-simple.json');
+    const filepath2 = getFixturePath('after-simple.json');
+
+    expect(genDiff(filepath1, filepath2, { format: 'stylish' })).toEqual(expectValue);
+  });
+});
+
 describe('Test Stylish', () => {
   const expectValue = fs.readFileSync(getFixturePath('result.txt'), 'utf-8');
 
