@@ -19,7 +19,7 @@ program
   .arguments('<filepath1> <filepath2>')
   .description('Compares two configuration files and shows a difference.')
   .option('-f, --format [type]', 'output format [stylish, plain, json]', slyles, 'stylish')
-  .action((filepath1, filepath2, formatName) => {
-    console.log(genDiff(filepath1, filepath2, formatName));
+  .action((filepath1, filepath2, { format } = 'stylish') => {
+    console.log(genDiff(filepath1, filepath2, format));
   })
   .parse(process.argc);

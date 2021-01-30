@@ -27,14 +27,14 @@ describe('Test Stylish', () => {
     const filepath1 = getFixturePath('before.json');
     const filepath2 = getFixturePath('after.json');
 
-    expect(genDiff(filepath1, filepath2, { format: 'stylish' })).toEqual(expectValue);
+    expect(genDiff(filepath1, filepath2, 'stylish')).toEqual(expectValue);
   });
 
   test('test YAML', () => {
     const filepath1 = getFixturePath('yaml-before.yml');
     const filepath2 = getFixturePath('yaml-after.yml');
 
-    expect(genDiff(filepath1, filepath2, { format: 'stylish' })).toEqual(expectValue);
+    expect(genDiff(filepath1, filepath2, 'stylish')).toEqual(expectValue);
   });
 });
 
@@ -45,14 +45,14 @@ describe('Test Plain', () => {
     const filepath1 = getFixturePath('before.json');
     const filepath2 = getFixturePath('after.json');
 
-    expect(genDiff(filepath1, filepath2, { format: 'plain' })).toEqual(expectValue);
+    expect(genDiff(filepath1, filepath2, 'plain')).toEqual(expectValue);
   });
 
   test('test YAML', () => {
     const filepath1 = getFixturePath('yaml-before.yml');
     const filepath2 = getFixturePath('yaml-after.yml');
 
-    expect(genDiff(filepath1, filepath2, { format: 'plain' })).toEqual(expectValue);
+    expect(genDiff(filepath1, filepath2, 'plain')).toEqual(expectValue);
   });
 });
 
@@ -63,13 +63,13 @@ describe('Test Json', () => {
     const filepath1 = getFixturePath('before.json');
     const filepath2 = getFixturePath('after.json');
 
-    expect(genDiff(filepath1, filepath2, { format: 'json' })).toEqual(expectValue);
+    expect(genDiff(filepath1, filepath2, 'json')).toEqual(expectValue);
   });
 
   test('test YAML', () => {
     const filepath1 = getFixturePath('yaml-before.yml');
     const filepath2 = getFixturePath('yaml-after.yml');
 
-    expect(genDiff(filepath1, filepath2, { format: 'json' })).toEqual(expectValue);
+    expect(genDiff(filepath1, filepath2, 'json')).toEqual(expectValue);
   });
 });
