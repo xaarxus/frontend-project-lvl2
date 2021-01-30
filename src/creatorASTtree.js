@@ -23,7 +23,7 @@ const creatorASTtree = (data1, data2) => {
   };
 
   const createTree = (obj, path = []) => {
-    const keys = [..._.keys(obj)].sort();
+    const keys = _.keys(obj);
 
     const toString = keys.reduce((acc, key) => {
       const newPath = [...path, key];
@@ -93,7 +93,7 @@ const creatorASTtree = (data1, data2) => {
       return acc;
     }, []);
 
-    return toString;
+    return _.sortBy(toString, 'name');
   };
 
   const result = createTree(mergeObject);
