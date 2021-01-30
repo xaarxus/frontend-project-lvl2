@@ -31,6 +31,16 @@ const creatorASTtree = (data1, data2) => {
       const second = _.get(data2, newPath, undefined);
 
       if (!_.isObject(obj[key])) {
+        if (_.isObject(first)) {
+          const oldValue = _.isObject(first) ? createChildren(first) : first;
+          acc.push({
+            name: key,
+            value: second,
+            oldValue,
+            status: 'updated',
+          });
+          return acc;
+        }
         if (first === second) {
           acc.push({ name: key, value: second, status: 'outdated' });
           return acc;
@@ -53,6 +63,16 @@ const creatorASTtree = (data1, data2) => {
         return acc;
       }
       if (_.isObject(obj[key])) {
+        if (!_.isObject(first) && first !== undefined) {
+          acc.push({
+            name: key,
+            value: 'nested',
+            oldValue: first,
+            status: 'updated',
+            children: createChildren(obj[key]),
+          });
+          return acc;
+        }
         if (second === undefined) {
           acc.push({
             name: key,
