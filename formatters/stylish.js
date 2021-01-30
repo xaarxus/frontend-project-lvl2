@@ -3,7 +3,7 @@ import creatorASTtree from '../src/creatorASTtree.js';
 const stylish = (data1, data2) => {
   const astTree = creatorASTtree(data1, data2);
 
-  const isObject = (obj) => typeof obj === 'object';
+  const isObject = (obj) => typeof obj === 'object' && obj !== null;
 
   const difference = (tree, deep = 1) => {
     const dif = tree.reduce((acc, item) => {
