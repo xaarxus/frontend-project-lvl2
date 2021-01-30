@@ -32,19 +32,16 @@ const plain = (data1, data2) => {
     if (status === 'added') {
       const newValue = normalizeValur(value);
       const str = `Property '${[...path, name].join('.')}' was added with value: ${newValue}`;
-      acc.push(str);
-      return acc;
+      return [...acc, str];
     }
     if (status === 'updated') {
       const newValue = normalizeValur(value);
       const previousValue = isObject(oldValue) ? '[complex value]' : normalizeValur(oldValue);
       const str = `Property '${[...path, name].join('.')}' was updated. From ${previousValue} to ${newValue}`;
-      acc.push(str);
-      return acc;
+      return [...acc, str];
     }
     const str = `Property '${[...path, name].join('.')}' was removed`;
-    acc.push(str);
-    return acc;
+    return [...acc, str];
   }, []).flat();
 
   const result = toString(astTree).join('\n');

@@ -12,7 +12,7 @@ const getFixturePath = (filename) => path.join(__dirname, '__fixtures__', filena
 describe('Simple test', () => {
   const expectValue = fs.readFileSync(getFixturePath('result-simple.txt'), 'utf-8');
 
-  test('test JSON', () => {
+  test('test simple JSON', () => {
     const filepath1 = getFixturePath('before-simple.json');
     const filepath2 = getFixturePath('after-simple.json');
 
@@ -23,14 +23,14 @@ describe('Simple test', () => {
 describe('Test Stylish', () => {
   const expectValue = fs.readFileSync(getFixturePath('result.txt'), 'utf-8');
 
-  test('test JSON', () => {
+  test('test Stylish JSON', () => {
     const filepath1 = getFixturePath('before.json');
     const filepath2 = getFixturePath('after.json');
 
     expect(genDiff(filepath1, filepath2, 'stylish')).toEqual(expectValue);
   });
 
-  test('test YAML', () => {
+  test('test Stylish YAML', () => {
     const filepath1 = getFixturePath('yaml-before.yml');
     const filepath2 = getFixturePath('yaml-after.yml');
 
@@ -41,14 +41,14 @@ describe('Test Stylish', () => {
 describe('Test Plain', () => {
   const expectValue = fs.readFileSync(getFixturePath('result-plain.txt'), 'utf-8');
 
-  test('test JSON', () => {
+  test('test Plain JSON', () => {
     const filepath1 = getFixturePath('before.json');
     const filepath2 = getFixturePath('after.json');
 
     expect(genDiff(filepath1, filepath2, 'plain')).toEqual(expectValue);
   });
 
-  test('test YAML', () => {
+  test('test Plain YAML', () => {
     const filepath1 = getFixturePath('yaml-before.yml');
     const filepath2 = getFixturePath('yaml-after.yml');
 
@@ -59,14 +59,14 @@ describe('Test Plain', () => {
 describe('Test Json', () => {
   const expectValue = fs.readFileSync(getFixturePath('result-json.txt'), 'utf-8');
 
-  test('test JSON', () => {
+  test('test Json JSON', () => {
     const filepath1 = getFixturePath('before.json');
     const filepath2 = getFixturePath('after.json');
 
     expect(genDiff(filepath1, filepath2, 'json')).toEqual(expectValue);
   });
 
-  test('test YAML', () => {
+  test('test Json YAML', () => {
     const filepath1 = getFixturePath('yaml-before.yml');
     const filepath2 = getFixturePath('yaml-after.yml');
 

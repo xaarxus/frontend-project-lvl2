@@ -23,7 +23,7 @@ const creatorASTtree = (data1, data2) => {
   };
 
   const createTree = (obj, path = []) => {
-    const keys = _.keys(obj).sort();
+    const keys = [..._.keys(obj)].sort();
 
     const toString = keys.reduce((acc, key) => {
       const newPath = [...path, key];
@@ -33,71 +33,62 @@ const creatorASTtree = (data1, data2) => {
       if (!_.isObject(obj[key])) {
         if (_.isObject(first)) {
           const oldValue = _.isObject(first) ? createChildren(first) : first;
-          acc.push({
+          return [...acc, {
             name: key,
             value: second,
             oldValue,
             status: 'updated',
-          });
-          return acc;
+          }];
         }
         if (first === second) {
-          acc.push({ name: key, value: second, status: 'outdated' });
-          return acc;
+          return [...acc, { name: key, value: second, status: 'outdated' }];
         }
         if (second === undefined) {
-          acc.push({ name: key, value: first, status: 'removed' });
-          return acc;
+          return [...acc, { name: key, value: first, status: 'removed' }];
         }
         if (first === undefined) {
-          acc.push({ name: key, value: second, status: 'added' });
-          return acc;
+          return [...acc, { name: key, value: second, status: 'added' }];
         }
         const oldValue = _.isObject(first) ? createChildren(first) : first;
-        acc.push({
+        return [...acc, {
           name: key,
           value: second,
           oldValue,
           status: 'updated',
-        });
-        return acc;
+        }];
       }
       if (_.isObject(obj[key])) {
         if (!_.isObject(first) && first !== undefined) {
-          acc.push({
+          return [...acc, {
             name: key,
             value: 'nested',
             oldValue: first,
             status: 'updated',
             children: createChildren(obj[key]),
-          });
-          return acc;
+          }];
         }
         if (second === undefined) {
-          acc.push({
+          return [...acc, {
             name: key,
             value: 'nested',
             status: 'removed',
             children: createChildren(obj[key]),
-          });
-          return acc;
+          }];
         }
         if (first === undefined) {
-          acc.push({
+          return [...acc, {
             name: key,
             value: 'nested',
             status: 'added',
             children: createChildren(obj[key]),
-          });
-          return acc;
+          }];
         }
-        acc.push({
+        return [...acc, {
           name: key,
           value: 'nested',
           status: 'outdated',
           children: createTree(obj[key], newPath),
-        });
-        return acc;
+        }];
       }
       return acc;
     }, []);
